@@ -1,0 +1,23 @@
+package com.codingdojo.luciano.controladores;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class ControladorHumanos {
+	
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public String desplegaSaludo() {
+		return "Hello Human";
+	}
+	
+	@RequestMapping(value="/hello", method=RequestMethod.GET)
+	public String helloNombreParam(@RequestParam(value="nombre")String nombre,
+									@RequestParam(value="apellido")String apellido) {
+			
+		return 	"<h1>Hola "+nombre+ apellido+"</h1>";					
+	}
+}
+	
